@@ -12,8 +12,7 @@ export const Container = styled.nav`
         list-style: none;
         margin: 0 auto;
         display: flex;
-        align-items: center;
-        max-width: 64rem;
+        align-items: center;        
 
         li {
             margin-right: 3.75rem;

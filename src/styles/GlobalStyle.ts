@@ -29,7 +29,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     overflow-y: overlay;
-    color: var(--gray-light);
+    color: var(--white);
   }
 
   body, input, button, textarea {
@@ -42,5 +42,9 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
   }
 `;
