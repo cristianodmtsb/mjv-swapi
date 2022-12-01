@@ -1,14 +1,14 @@
+import { RoutesMain } from './routes';
 import { Header } from './components/Header';
 import GlobalStyle from './styles/GlobalStyle';
 
-function App() {
+export function App() {
 
   return (
     <div>
       <GlobalStyle />
       <Header />
+      <RoutesMain />
     </div>
   )
 }
-
-export default App

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
     color: var(--white);
-    max-height: 3rem;
+    height: 3rem;
     width: 100%;
     border-bottom: 1px solid var(--gray-light);
     border-top: 1px solid var(--gray-light);
@@ -10,16 +10,26 @@ export const Container = styled.nav`
 
     ul {
         list-style: none;
-        margin: 0.75rem auto;
+        margin: 0 auto;
         display: flex;
+        align-items: center;
         max-width: 64rem;
 
         li {
-            margin-right: 4rem;
+            margin-right: 3.75rem;
             text-transform: uppercase;
+            border: 2px solid #000;
+            padding: 1px 0;
 
-            &:hover {
-                border-bottom: 2px solid var(--primary);
+            a {
+                color: var(--white);
+                text-decoration: none;
+
+                &:hover {
+                    border-bottom: 2px solid var(--primary);
+                    cursor: pointer;
+                    color: var(--primary);
+                }
             }
         }
     }
