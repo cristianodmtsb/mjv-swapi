@@ -1,7 +1,9 @@
+import HomeSlider from "../../components/HomeSlider";
+
 export function Home() {
   return (
-    <div>
-        Home
-    </div>
-  )
+    <>
+      <HomeSlider />
+    </>
+  );
 }
