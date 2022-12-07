@@ -10,6 +10,15 @@ const ButtonStyle = {
         background: var(--primary);
         color: var(--secondary);
         padding: 0 1rem;
+        text-transform: uppercase;
+        border: 2px solid var(--secondary);
+        width: 100%;
+
+        &:hover {
+        background-color: var(--secondary);
+        border-color: var(--primary);
+        color: var(--primary);
+    }
     `,
     error: css`
         background: var(--error);
@@ -19,6 +28,11 @@ const ButtonStyle = {
         color: var(--primary);
         text-decoration: none;
         font-weight: bold;
+
+        &:disabled {
+            color: var(--gray-light);
+            border: none;
+        }
     `,
 }
 
@@ -26,18 +40,9 @@ const ButtonDefaultStyle = css`
     min-height: 3rem;
     padding: 0 1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    border: 2px solid var(--secondary);
-
-    &:hover {
-        background-color: var(--secondary);
-        border-color: var(--primary);
-        color: var(--primary);
-    }
 `
 
 export const Button = styled.button<IButtonProps>`
     ${({ variant }) => ButtonStyle[variant]}
     ${ButtonDefaultStyle}
-    width: ${({ width }) => width || '100%' } ;
 `;

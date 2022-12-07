@@ -47,4 +47,8 @@ export default createGlobalStyle`
   ul {
     list-style: none;
   }
+
+  .pagination {
+    text-align: center;
+  }
 `;
