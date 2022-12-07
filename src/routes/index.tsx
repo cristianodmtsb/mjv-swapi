@@ -3,6 +3,7 @@ import { Characters } from '../pages/Characters';
 import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 import { Movies } from '../pages/Movies';
+import { NotFound } from '../pages/NotFound';
 import { Planets } from '../pages/Planets';
 import { Register } from '../pages/Register';
 import { Ships } from '../pages/Ships';
@@ -17,6 +18,8 @@ export function RoutesMain() {
             <Route path='movies' element={<Movies />} />
             <Route path='register' element={<Register />} />
             <Route path='login' element={<Login />} />
+
+            <Route path="*" element={<NotFound />} />
         </Routes>
     )
 }
