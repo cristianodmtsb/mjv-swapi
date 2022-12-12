@@ -7,7 +7,7 @@ export default createGlobalStyle`
     --white: #FFFFFF;
     --gray-light: #8D8D99;
     --gray-dark: #1E1E1E;
-    --error: #FD4B4B;
+    --error: #fe4a49;
     --success: #66FE63;
     --danger: #FDB03E;
   }
@@ -50,5 +50,10 @@ export default createGlobalStyle`
 
   .pagination {
     text-align: center;
+  }
+
+  .error {
+    color: var(--error);
+    font-size: 0.75rem;
   }
 `;
