@@ -1,10 +1,14 @@
-import { MdOutlineMail, MdLockOutline } from "react-icons/md";
+import { useState } from "react";
+import { MdOutlineMail } from "react-icons/md";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { Input } from "../../components/Input";
 import { Button } from "../../styles/Button";
 import { Main } from "./styles";
 
 export function Register() {
+  const [showPassword, setShowPassword] = useState(false);
+
     return (
       <Main>
         <h1>Criar Conta</h1>
@@ -13,7 +17,7 @@ export function Register() {
             id='username' 
             name='username' 
             label='Nome de usuário' 
-            type='username'  
+            type='text'  
           >
             <BiUser />
           </Input>
@@ -29,17 +33,31 @@ export function Register() {
             id='password' 
             name='password' 
             label='Senha' 
-            type='password'
+            type={showPassword ? 'text' : 'password'}
           >
-            <MdLockOutline />
+            <Button 
+              type="button" 
+              variant="icon" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+            { showPassword ? 
+              <AiFillEyeInvisible/> :  <AiFillEye /> }  
+            </Button>
           </Input>
           <Input 
             id='confirm-password' 
             name='confirm-password' 
             label='Confirmar Senha' 
-            type='password'
+            type={showPassword ? 'text' : 'password'}
           >
-            <MdLockOutline />
+            <Button 
+              type="button" 
+              variant="icon" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              { showPassword ? 
+              <AiFillEyeInvisible/> :  <AiFillEye /> } 
+            </Button>
           </Input>
           <Button type="submit" variant='primary'>Criar Conta</Button>
         </form>

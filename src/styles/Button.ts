@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IButtonProps {
-    variant: 'primary' | 'error' | 'inline';
+    variant: 'primary' | 'error' | 'inline' | 'icon';
     width?: string;
 }
 
@@ -22,6 +22,12 @@ const ButtonStyle = {
     `,
     error: css`
         background: var(--error);
+    `,
+    icon: css`
+        color: var(--white);
+        background: none;
+        border: none;  
+        width: 2.5rem;
     `,
     inline: css`
         background: none;

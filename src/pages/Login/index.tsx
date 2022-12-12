@@ -1,10 +1,14 @@
-import { MdOutlineMail, MdLockOutline } from "react-icons/md";
+import { useState } from "react";
+import { MdOutlineMail } from "react-icons/md";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { Button } from "../../styles/Button";
 import { Main } from "./styles";
 
 export function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+  
     return (
       <Main>
         <h1>Login</h1>
@@ -21,9 +25,16 @@ export function Login() {
             id='password' 
             name='password' 
             label='Senha' 
-            type='password'
+            type={showPassword ? 'text' : 'password'}
           >
-            <MdLockOutline />
+            <Button 
+              type="button" 
+              variant="icon" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+            { showPassword ? 
+              <AiFillEyeInvisible/> :  <AiFillEye /> }  
+            </Button>
           </Input>
           <Button type="submit" variant='primary'>Fazer Login</Button>
           <Link to='/register'>Não tem uma conta? Faça seu cadastro</Link> 
