@@ -1,0 +1,18 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "mariana",
+        "email": "mari@email.com",
+        "password": "12345678",
+        "favorites": []
+      }
+    ],
+    "sessions": [
+      {
+        "email": "mari@email.com",
+        "password": "12345678",
+        "id": 1
+      }
+    ]
+  }

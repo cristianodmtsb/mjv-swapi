@@ -4,25 +4,7 @@ import { Card } from '../../components/Card';
 import { swapi } from '../../services/swapi';
 import { Button } from '../../styles/Button';
 import { List } from '../../styles/List';
-
-interface IPerson {
-  birth_year: string;
-  eye_color: string;
-  films: string[]
-  gender: string;
-  hair_color: string;
-  height: string;
-  homeworld: string;
-  mass: string;
-  name: string;
-  skin_color: string;
-  created: string;
-  edited: string;
-  species: string[]
-  starships: string[]
-  url: string;
-  vehicles: string[]
-}
+import { IPerson } from './types';
 
 export function Characters() {
   const [people, setPeople] = useState<IPerson[]>([]);
@@ -45,7 +27,7 @@ export function Characters() {
         <List>
           {
             people.map(person => 
-              <Card title={person.name}>
+              <Card title={person.name} key={person.name}>
                 <li>Birth year: {person.birth_year}</li>
                 <li>Eye color: {person.eye_color}</li>
                 <li>Gender: {person.gender}</li>
@@ -53,7 +35,8 @@ export function Characters() {
                 <li>Height: {person.height}</li>
                 <li>Mass: {person.mass}</li>
                 <li>Skin color: {person.skin_color}</li>
-              </Card>
+                <li><Link to={`/character-profile${person.url.substring(28)}`}>+Detalhes</Link></li>
+              </Card>              
             )
           }
       </List>

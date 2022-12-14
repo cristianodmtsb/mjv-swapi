@@ -1,7 +1,7 @@
-export function Movies() {
+export function Films() {
     return (
       <div>
-          Movies
+          Films
       </div>
     )
   }
