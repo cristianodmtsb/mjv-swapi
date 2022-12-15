@@ -9,6 +9,7 @@ import { IPerson } from './types';
 export function Characters() {
   const [people, setPeople] = useState<IPerson[]>([]);
   const [page, setPage] = useState<number>(1);
+  const [isLastPage, setIsLastPage] = useState(false);
 
   useEffect(() => {
     swapi.get('/people/', {
@@ -18,23 +19,27 @@ export function Characters() {
     })
       .then(response => {
         setPeople(response.data.results);
+        if (response.data.next == null) {
+          setIsLastPage(true);
+        } else {
+          setIsLastPage(false);
+        }
       })
       .catch(error => console.error(error))
   }, [page])
 
     return (
       <>
+        <h1>Personagens</h1>
         <List>
           {
             people.map(person => 
               <Card title={person.name} key={person.name}>
-                <li>Birth year: {person.birth_year}</li>
                 <li>Eye color: {person.eye_color}</li>
                 <li>Gender: {person.gender}</li>
                 <li>Hair color: {person.hair_color}</li>
                 <li>Height: {person.height}</li>
                 <li>Mass: {person.mass}</li>
-                <li>Skin color: {person.skin_color}</li>
                 <li><Link to={`/character-profile${person.url.substring(28)}`}>+Detalhes</Link></li>
               </Card>              
             )
@@ -43,7 +48,7 @@ export function Characters() {
       <div className='pagination'>
         <Button onClick={() => setPage(page - 1)} disabled={page === 1 ? true : false} variant='inline'>Anterior</Button>
         <span>[ Página {page} ]</span>
-        <Button onClick={() => setPage(page + 1)} variant='inline'>Próxima</Button>
+        <Button onClick={() => setPage(page + 1)} disabled={isLastPage ? true : false} variant='inline'>Próxima</Button>
       </div>      
       </>
     )

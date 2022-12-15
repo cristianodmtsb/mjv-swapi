@@ -7,9 +7,9 @@ export function Menu() {
             <ul>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='characters'>Personagens</Link></li>
-                <li><Link to='ships'>Naves</Link></li>
+                <li><Link to='starships'>Naves</Link></li>
                 <li><Link to='planets'>Planetas</Link></li>
-                <li><Link to='movies'>Filmes</Link></li>
+                <li><Link to='films'>Filmes</Link></li>
             </ul>
 
             <ul>

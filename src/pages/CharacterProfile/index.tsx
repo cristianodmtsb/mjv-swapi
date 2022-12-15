@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { swapi } from "../../services/swapi";
-import { List } from "../../styles/List";
 import { IPerson } from "../Characters/types";
 import { IFilm } from "../Films/types";
 import { IPlanet } from "../Planets/types";
+import { Main } from "./styles";
 
 export function CharacterProfile() {
   const [character, setCharacter] = useState<IPerson>();
@@ -25,7 +25,7 @@ export function CharacterProfile() {
           })
           .catch(error => console.error(error))      
     }
-  }, [])
+  }, [id])
 
   useEffect(() => {
     if (character) {
@@ -51,7 +51,7 @@ export function CharacterProfile() {
   }, [character])
 
   return (
-      <List>
+    <Main>
         { character ? 
           <ul>
             <li><h2>{character.name}</h2></li>
@@ -63,13 +63,10 @@ export function CharacterProfile() {
             <li>Mass: {character.mass}</li>
             <li>Skin color: {character.skin_color}</li>
             <li>Homeworld: {homeworld?.name}</li>
-            <li>Films: 
-              {
-                films.map(film => <span>{film.title + " / "}</span>)
-              }
+            <li>Films: {films.map(film => <span>{film.title + " / "}</span>)}
             </li>
           </ul>
-        : 'Personagem não encontrado'}       
-      </List>
+        : 'Personagem não encontrado'}
+    </Main>      
   )
 }

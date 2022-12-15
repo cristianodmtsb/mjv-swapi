@@ -40,6 +40,11 @@ export default createGlobalStyle`
     font-weight: 500;
   }
 
+  h1 {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
   button {
     cursor: pointer;
   }

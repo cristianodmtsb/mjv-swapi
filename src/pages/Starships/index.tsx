@@ -4,21 +4,21 @@ import { Card } from '../../components/Card';
 import { swapi } from '../../services/swapi';
 import { Button } from '../../styles/Button';
 import { List } from '../../styles/List';
-import { IFilm } from './types';
+import { IStarship } from './types';
 
-export function Films() {
-  const [films, setFilms] = useState<IFilm[]>([]);
+export function Starships() {
+  const [starships, setStarships] = useState<IStarship[]>([]);
   const [page, setPage] = useState<number>(1);
   const [isLastPage, setIsLastPage] = useState(false);
 
   useEffect(() => {
-    swapi.get('/films/', {
+    swapi.get('/starships/', {
       params: {
         page: page
       }
     })
       .then(response => {
-        setFilms(response.data.results);
+        setStarships(response.data.results);
         if (response.data.next == null) {
           setIsLastPage(true);
         } else {
@@ -32,13 +32,14 @@ export function Films() {
       <>
         <List>
           {
-            films.map(film => 
-              <Card title={film.title} key={film.title}>
-                <li>Director: {film.director}</li>
-                <li>Producer: {film.producer}</li>
-                <li>Episode number: {film.episode_id}</li>
-                <li>Release date: {film.release_date}</li>
-                <li><Link to={`/film-profile${film.url.substring(28)}`}>+Detalhes</Link></li>
+            starships.map(starship => 
+              <Card title={starship.name} key={starship.name}>
+                <li>Starship class: {starship.starship_class}</li>
+                <li>Model: {starship.model}</li>
+                <li>Cost in credits: {starship.cost_in_credits}</li>
+                <li>Crew: {starship.crew}</li>
+                <li>Cago capacity: {starship.cargo_capacity}</li>
+                <li><Link to={`/starship-profile${starship.url.substring(28)}`}>+Detalhes</Link></li>
               </Card>              
             )
           }
